@@ -24,14 +24,16 @@ enum EFileNames{
 
 public class EmployeePayrollService {
 	
+	static File file1 = new File(EFileNames.FILE_NAME1.getConstant());
+	static File file2 = new File(EFileNames.FILE_NAME2.getConstant());
+	static File file3 = new File(EFileNames.FILE_NAME3.getConstant());
+	static File file4 = new File(EFileNames.FILE_NAME4.getConstant());
+	static File file5 = new File(EFileNames.FILE_NAME5.getConstant());
+	
 	//Create new file
 	public static void createNewFile() {
-		File file1 = new File(EFileNames.FILE_NAME1.getConstant());
-		File file2 = new File(EFileNames.FILE_NAME2.getConstant());
-		File file3 = new File(EFileNames.FILE_NAME3.getConstant());
-		File file4 = new File(EFileNames.FILE_NAME4.getConstant());
-		File file5 = new File(EFileNames.FILE_NAME5.getConstant());
 		
+		//Create new file and File exists.
 		try {
 			if(file1.createNewFile() && file2.createNewFile() &&
 					file3.createNewFile() && file4.createNewFile() &&
@@ -45,8 +47,19 @@ public class EmployeePayrollService {
 		}
 	}
 	
+	//Delete files and File not exist
+	public static void deleteFile() {
+		
+		if(file5.delete()) {
+			System.out.println("File is deleted.");
+		}else {
+			System.out.println("File not found!.");
+		}
+	}
+	
 	public static void main(String[] args) {
-		createNewFile();
+		//createNewFile();
+		deleteFile();
 	}
 
 }
