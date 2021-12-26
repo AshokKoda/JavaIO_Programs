@@ -57,9 +57,20 @@ public class EmployeePayrollService {
 		}
 	}
 	
+	//Create New Directory
+	public static void createDirectory() {
+		File directory = new File("D:/Eclipse Java Projects/eclipse-workspace/Java_IO_Programs/Ashok");
+		if(directory.mkdir()) {
+			System.out.println("The new directory is created.");
+		}else {
+			System.out.println("The directory already exists.");
+		}
+	}
+	
 	public static void main(String[] args) {
-		//createNewFile();
+		createNewFile();
 		deleteFile();
+		createDirectory();
 	}
 
 }
