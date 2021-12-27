@@ -1,6 +1,7 @@
 package payrollservice;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,6 +37,7 @@ public class EmployeePayrollService {
 			}
 			writeTextFile(textfile, getListOfPayroll().toString());
 			totalCount();
+			readTextFile(textfile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -79,6 +81,19 @@ public class EmployeePayrollService {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public static void readTextFile(File file) {
+		try {
+			FileReader fileReader = new FileReader(file);
+			Scanner sc = new Scanner(fileReader);
+			
+			System.out.println("Reading data ::");
+			System.out.println(sc.nextLine());
+			fileReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
